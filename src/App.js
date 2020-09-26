@@ -49,7 +49,7 @@ function App() {
                                 <a href="product.html">{product.name}</a>
                             </div>
                             <div className="product-brand">{product.brand}</div>
-                            <div className="product-price">BDT {product.price}</div>
+                            <div className="product-price">AUD {product.price}</div>
                         </div>
                     </li>)
                   }
