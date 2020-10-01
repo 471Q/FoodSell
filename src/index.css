@@ -9,6 +9,10 @@ body{
   margin: 0;
 }
 
+#root{
+  height: 100%;
+}
+
 a{
   text-decoration: none;
   color: black;
@@ -112,10 +116,15 @@ a:hover{
 .sidebar{
   position: fixed;
   transition: all 1se;
-  transform: translateX(-30rem);
+  transform: translateX(-35rem);
   width:30rem;
   background-color: #f0f0f0;
   height: 100%;
+  padding: 1rem;
+}
+.sidebar ul{
+  list-style-type: none;
+  padding: 0;
 }
 .sidebar.open{
   transform: translateX(0);
@@ -130,4 +139,56 @@ a:hover{
   position: absolute;
   right: .5rem;
   top: 1.5rem;
+}
+
+/* Product details */
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.details-image{
+  flex: 2 1 60rem;
+}
+.details-image img{
+  max-width: 60rem;
+  widows: 100%;
+}
+.details-info{
+  flex: 1 1 30rem;
+}
+.details-action{
+  flex: 1 1 30rem;
+}
+.details-info ul, .details-action ul{
+  list-style-type: none;
+  padding: 0;
+}
+.details-info li, .details-action li{
+  margin-bottom: 1rem;
+}
+.back-to-result{
+  padding: 1rem;
+}
+.details-action{
+  border: .1rem #808080 solid;
+  border-radius: 0.5rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+.details-action ul li:last-child{
+  display: flex;
+  flex-direction: column;
+}
+.crt_button{
+  padding: 1rem;
+  border:.1rem #808080 solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #f0c040;
+}
+.crt_button:hover{
+  border:.1rem #404040 solid;
 }

@@ -1,6 +1,8 @@
 import React from 'react';
-import data from './data';
 import './App.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import HomeScreen from './Partial/HomeScreen'
+import ProductScreen from './Partial/ProductScreen'
 
 function App() {
   const openMenu = () =>{
@@ -10,13 +12,14 @@ function App() {
     document.querySelector(".sidebar").classList.remove("open")
   }
   return (
+  <BrowserRouter>
     <div className="grid-container">
         <header className="header">
             <div className="brand">
                 <button onClick={openMenu}>
                     &#9776;
                 </button>
-                <a href="index.html">FoodSell</a>
+                <Link to="/">FoodSell</Link>
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart  </a>
@@ -25,41 +28,44 @@ function App() {
         </header>
 
         <aside className="sidebar">
-            <h3>Available Restaurents</h3>
+            <h3>Menu</h3>
             <button className="close-Btn" onClick={closeMenu}>X</button>
             <ul>
                 <li>
-                    <a href="index.html">Chillox</a>
+                    <a href="index.html">Home</a>
                 </li>
                 <li>
-                    <a href="index.html">BurgerLab 2.0</a>
+                    <a href="index.html">Search</a>
+                </li>
+                <li>
+                    <a href="index.html">Cart</a>
+                </li>
+            </ul>
+            <h3>Available Restaurents</h3>
+            <ul>
+                <li>
+                    <a href="index.html">Hungry Jacks</a>
+                </li>
+                <li>
+                    <a href="index.html">MacDonalds</a>
+                </li>
+                <li>
+                    <a href="index.html">KFC</a>
                 </li>
             </ul>
         </aside>
 
         <main className="main">
            <div className="content">
-                <ul className="products">
-                  {
-                    data.products.map(product => 
-                      <li>
-                        <div className="product">
-                            <img className="product-image" src={product.image} alt="product"/>
-                            <div className="product-name">
-                                <a href="product.html">{product.name}</a>
-                            </div>
-                            <div className="product-brand">{product.brand}</div>
-                            <div className="product-price">AUD {product.price}</div>
-                        </div>
-                    </li>)
-                  }
-                </ul>
+             <Route path="/product/:id" component={ProductScreen}/>
+             <Route path="/" exact={true} component={HomeScreen}/>
            </div>
         </main>
         <footer className="footer">
             All rights reserved
         </footer>
     </div>
+    </BrowserRouter>
   );
 }
 
