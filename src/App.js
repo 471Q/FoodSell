@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import HomeScreen from './Partial/HomeScreen'
-import ProductScreen from './Partial/ProductScreen'
+import HomeScreen from './Partial/HomeScreen';
+import ProductScreen from './Partial/ProductScreen';
+import CartScreen from './Partial/CartScreen';
+import Checkout from './Partial/Checkout';
+import SignInScreen from './Partial/SignIn';
+import RegistrationScreen from './Partial/reg';
 
 function App() {
   const openMenu = () =>{
@@ -23,7 +27,7 @@ function App() {
             </div>
             <div className="header-links">
                 <a href="cart.html">Cart  </a>
-                <a href="singin.html">Sign In</a>
+                <Link to="/signin">Sign In</Link>
             </div>
         </header>
 
@@ -58,7 +62,11 @@ function App() {
         <main className="main">
            <div className="content">
              <Route path="/product/:id" component={ProductScreen}/>
+             <Route path="/cart/:id?" component={CartScreen}/>
+             <Route path="/checkout/:id?" component={Checkout}/>
              <Route path="/" exact={true} component={HomeScreen}/>
+             <Route path="/signin/"  exact={true} component={SignInScreen}/>
+             <Route path="/reg/" exact={true} component={RegistrationScreen}/>
            </div>
         </main>
         <footer className="footer">

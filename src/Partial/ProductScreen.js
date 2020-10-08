@@ -41,7 +41,7 @@ function ProductScreen(props){
                         </select>
                     </li>
                     <li>
-                        <button className="crt_button">Add to Cart</button>
+                    <Link to={'/cart/' + product._id}><button className="crt_button">Add to Cart</button></Link>
                     </li>
                 </ul>
             </div>
